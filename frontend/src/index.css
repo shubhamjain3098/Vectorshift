@@ -1,0 +1,92 @@
+/* Reset + Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f3f4f6;
+  overflow: hidden;
+}
+
+/* Flex layout */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Toolbar */
+.toolbar {
+  width: 240px;
+  background: #1e293b;
+  color: white;
+  padding: 20px;
+  border-right: 1px solid #334155;
+}
+
+.toolbar-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.toolbar-button {
+  background: #0f172a;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toolbar-button:hover {
+  background: #2563eb;
+}
+
+/* Canvas */
+.canvas-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Submit Section */
+.submit-section {
+  padding: 12px;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.submit-button:hover {
+  background: #1d4ed8;
+}
+
+/* DAG Status */
+.status-box {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+}

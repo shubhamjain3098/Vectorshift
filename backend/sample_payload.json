@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "customInput-1",
+      "nodeType": "customInput",
+      "data": { "name": "Abc", "type": "Text" }
+    },
+    {
+      "id": "text-1",
+      "nodeType": "text",
+      "data": { "text": "{{input}}" }
+    },
+    {
+      "id": "customOutput-1",
+      "nodeType": "customOutput",
+      "data": { "name": "Def", "type": "Text" }
+    }
+  ],
+  "edges": [
+    { "source": "customInput-1", "target": "text-1" },
+    { "source": "text-1", "target": "customOutput-1" }
+  ]
+}

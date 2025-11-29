@@ -1,0 +1,85 @@
+/* STRUCTURE ------------------------------------ */
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  background: #0f172a; /* navy */
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  width: 230px;
+  padding: 20px;
+  background: #1e293b;
+  border-right: 1px solid #334155;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* WORKSPACE */
+.workspace {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 16px;
+}
+
+/* CANVAS */
+.canvas-card {
+  flex: 1;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* SUBMIT SECTION */
+.submit-area {
+  background: #1e293b;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Submit Button override */
+.submit-area button {
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-area button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* CANVAS BACKGROUND GRID */
+.react-flow__pane,
+.react-flow__viewport {
+  background-color: #e2e8f0 !important;
+}
+
+.react-flow__background .dots {
+  stroke: #94a3b8 !important;
+  opacity: 0.35;
+}
+
+/* FLOW CONTROLS */
+.react-flow__controls {
+  border-radius: 8px;
+  background: #1e293b;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.react-flow__controls button:hover {
+  background: #334155;
+}
