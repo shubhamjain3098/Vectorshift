@@ -2,8 +2,9 @@
 import { useCallback, useState } from "react";
 import { useStore } from "./store";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 export const SubmitButton = () => {
-  // accessing nodes and edges from store.js
   const nodes = useStore((s) => s.nodes);
   const edges = useStore((s) => s.edges);
 
@@ -11,15 +12,25 @@ export const SubmitButton = () => {
   const [responseMsg, setResponseMsg] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
+  // ✅ log safely:
+  console.log("API_BASE =", API_BASE);
+
   const handleSubmit = useCallback(async () => {
     setLoading(true);
     setErrorMsg(null);
     setResponseMsg(null);
 
+    // ✅ safety guard
+    if (!API_BASE) {
+      setErrorMsg("Backend URL not loaded. Check .env file.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const payload = { nodes, edges };
 
-      const res = await fetch("http://localhost:8000/pipelines/parse", {
+      const res = await fetch(`${API_BASE}/pipelines/parse`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -31,7 +42,6 @@ export const SubmitButton = () => {
 
       const data = await res.json();
 
-      // Show success response in UI
       setResponseMsg(
         `Nodes: ${data.num_nodes} | Edges: ${data.num_edges} | DAG: ${
           data.is_dag ? "YES" : "NO"
@@ -47,7 +57,7 @@ export const SubmitButton = () => {
 
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      {/* SUCCESS BANNER */}
+      {/* SUCCESS */}
       {responseMsg && (
         <div
           style={{
@@ -64,7 +74,7 @@ export const SubmitButton = () => {
         </div>
       )}
 
-      {/* ERROR BANNER */}
+      {/* ERROR */}
       {errorMsg && (
         <div
           style={{
